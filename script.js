@@ -30,8 +30,8 @@
 const sections = document.querySelectorAll('.section');
 let currentSection = 0;
 let isProcessing = false;
-let below45 = false;
-let above135 = false;
+let below = false;
+let above = false;
 
 window.addEventListener('deviceorientation', function(event) {
     const beta = event.beta;
@@ -39,26 +39,26 @@ window.addEventListener('deviceorientation', function(event) {
     if (!isProcessing) {
         isProcessing = true;
 
-        // Vérification pour la première condition (en dessous de 45 puis remonte au-dessus de 70)
-        if (beta < 60 && currentSection < sections.length - 1) {
-            below45 = true;
-        } else if (beta > 70 && below45) {
-            below45 = false;
+        // Vérification pour la première condition (en dessous de 60 puis remonte au-dessus de 70)
+        if (beta < 45 && currentSection < sections.length - 1) {
+            below = true;
+        } else if (beta > 70 && below) {
+            below = false;
             currentSection++;
         }
 
-        // Vérification pour la deuxième condition (au-dessus de 135 puis redescend en dessous de 110)
-        if (beta > 120 && currentSection > 0) {
-            above135 = true;
-        } else if (beta < 110 && above135) {
-            above135 = false;
+        // Vérification pour la deuxième condition (au-dessus de 120 puis redescend en dessous de 110)
+        if (beta > 140 && currentSection > 0) {
+            above = true;
+        } else if (beta < 110 && above) {
+            above = false;
             currentSection--;
         }
 
         sections.forEach((section, index) => {
             section.classList.toggle('active', index === currentSection);
         });
-        
+
         isProcessing = false;
     }
 }, false);
