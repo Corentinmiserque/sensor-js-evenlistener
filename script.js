@@ -22,7 +22,7 @@ window.addEventListener('deviceorientation', function(event) {
 
         setTimeout(() => {
             interval = true;
-        }, 1000); 
+        }, 750); 
     }
 }, false);
 
