@@ -4,18 +4,24 @@ let interval = true;
 
 // Vérifie si l'appareil prend en charge l'événement 'deviceorientation'
 if ('DeviceOrientationEvent' in window) {
-    // Demande la permission pour les événements 'deviceorientation' sur iOS
-    DeviceOrientationEvent.requestPermission()
-        .then(permissionState => {
-            if (permissionState === 'granted') {
-                // L'autorisation a été accordée, vous pouvez écouter l'événement 'deviceorientation'
-                window.addEventListener('deviceorientation', handleOrientation, false);
-            } else {
-                // L'utilisateur a refusé l'autorisation
-                console.error('Permission refusée pour les événements deviceorientation');
-            }
-        })
-        .catch(console.error);
+    // Vérifie si la méthode requestPermission existe
+    if (DeviceOrientationEvent.requestPermission) {
+        // Demande la permission pour les événements 'deviceorientation' sur iOS
+        DeviceOrientationEvent.requestPermission()
+            .then(permissionState => {
+                if (permissionState === 'granted') {
+                    // L'autorisation a été accordée, vous pouvez écouter l'événement 'deviceorientation'
+                    window.addEventListener('deviceorientation', handleOrientation, false);
+                } else {
+                    // L'utilisateur a refusé l'autorisation
+                    console.error('Permission refusée pour les événements deviceorientation');
+                }
+            })
+            .catch(console.error);
+    } else {
+        // La méthode requestPermission n'existe pas, suppose que l'autorisation est accordée
+        window.addEventListener('deviceorientation', handleOrientation, false);
+    }
 } else {
     console.error("L'appareil ne prend pas en charge l'événement deviceorientation");
 }
