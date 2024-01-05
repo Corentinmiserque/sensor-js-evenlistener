@@ -42,7 +42,7 @@ window.addEventListener('deviceorientation', function(event) {
         // Vérification pour la première condition (en dessous de 60 puis remonte au-dessus de 70)
         if (beta < 45 && currentSection < sections.length - 1) {
             below = true;
-        } else if (beta > 70 && below) {
+        } else if (beta > 70 && below === true) {
             below = false;
             currentSection++;
         }
@@ -50,7 +50,7 @@ window.addEventListener('deviceorientation', function(event) {
         // Vérification pour la deuxième condition (au-dessus de 120 puis redescend en dessous de 110)
         if (beta > 140 && currentSection > 0) {
             above = true;
-        } else if (beta < 110 && above) {
+        } else if (beta < 110 && above === true) {
             above = false;
             currentSection--;
         }
