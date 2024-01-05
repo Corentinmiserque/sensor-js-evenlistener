@@ -1,12 +1,12 @@
 const sections = document.querySelectorAll('.section');
 let currentSection = 0;
-let canPerformAction = true;
+let interval = true;
 
 window.addEventListener('deviceorientation', function(event) {
     const beta = event.beta;
 
-    if (canPerformAction) {
-        canPerformAction = false;
+    if (interval) {
+       interval = false;
 
         if (beta < 45 && currentSection < sections.length - 1) {
             // Inclinaison vers le haut
@@ -21,7 +21,7 @@ window.addEventListener('deviceorientation', function(event) {
         });
 
         setTimeout(() => {
-            canPerformAction = true;
-        }, 500); // 0.5 seconde d'intervalle
+            interval = true;
+        }, 1000); 
     }
 }, false);
