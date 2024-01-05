@@ -2,28 +2,26 @@ const sections = document.querySelectorAll('.section');
 let currentSection = 0;
 let interval = true;
 
-// Vérifie si l'appareil prend en charge l'événement 'deviceorientation'
-if ('DeviceOrientationEvent' in window) {
-    // Vérifie si la méthode requestPermission existe
-    if (DeviceOrientationEvent.requestPermission) {
-        // Demande la permission pour les événements 'deviceorientation' sur iOS
-        DeviceOrientationEvent.requestPermission()
-            .then(permissionState => {
-                if (permissionState === 'granted') {
-                    // L'autorisation a été accordée, vous pouvez écouter l'événement 'deviceorientation'
-                    window.addEventListener('deviceorientation', handleOrientation, false);
-                } else {
-                    // L'utilisateur a refusé l'autorisation
-                    console.error('Permission refusée pour les événements deviceorientation');
-                }
-            })
-            .catch(console.error);
+function requestOrientationPermission() {
+    if ('DeviceOrientationEvent' in window) {
+        // Vérifie si la méthode requestPermission existe
+        if (DeviceOrientationEvent.requestPermission) {
+            DeviceOrientationEvent.requestPermission()
+                .then(response => {
+                    if (response == 'granted') {
+                        // L'autorisation a été accordée, ajoute l'événement 'deviceorientation'
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    }
+                })
+                .catch(console.error);
+        } else {
+            // La méthode requestPermission n'existe pas, suppose que l'autorisation est accordée
+            // Ajoute l'événement 'deviceorientation'
+            window.addEventListener('deviceorientation', handleOrientation);
+        }
     } else {
-        // La méthode requestPermission n'existe pas, suppose que l'autorisation est accordée
-        window.addEventListener('deviceorientation', handleOrientation, false);
+        console.error("L'appareil ne prend pas en charge l'événement deviceorientation");
     }
-} else {
-    console.error("L'appareil ne prend pas en charge l'événement deviceorientation");
 }
 
 function handleOrientation(event) {
@@ -49,3 +47,11 @@ function handleOrientation(event) {
         }, 1000);
     }
 }
+
+// Demande la permission d'orientation lors du chargement de la page (vous pouvez le déclencher à un autre moment)
+window.onload = function() {
+    const shouldRequestPermission = window.confirm("Voulez-vous autoriser l'accès à l'orientation de l'appareil?");
+    if (shouldRequestPermission) {
+        requestOrientationPermission();
+    }
+};
