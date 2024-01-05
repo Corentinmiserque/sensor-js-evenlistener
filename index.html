@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orientation</title>
+    <style>
+        * {
+  border:0;
+  margin: 0;
+  padding: 0;
+}
+.section {
+  padding: 2rem;
+  height: 100vh;
+  opacity:0;
+  position: fixed;
+  width: 100%-2rem;
+  transition: all 1s;
+  margin-top: +100vh;
+}
+.section1 {
+  background-color: rgba(255,255,0,.5);
+}
+.section2 {
+  background-color: rgba(255,0,0,.5);
+}
+.section3 {
+  background-color: rgba(0,0,255,.5);
+}
+.active {
+  opacity:1;
+  margin-top: 0vh;
+}
+    </style>
+</head>
+<body>
+    <div class="page">
+        <section class="section section1 active">
+          <h1>section 1</h1>
+          <p>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ex nemo dolor, voluptas, voluptatem quaerat saepe facilis magni tempore nam voluptatibus ipsum illo hic. Repellendus aperiam dolorum nobis aliquam dignissimos?</span>
+            <span>A minima nobis fuga excepturi optio voluptatibus sit illo laborum sequi molestiae sint corporis dicta adipisci reiciendis dolore, explicabo expedita cupiditate ab totam alias? Pariatur nesciunt quaerat tempora qui eaque.</span>
+            <span>Ipsam, harum? Libero vel dolor sunt repudiandae itaque amet aliquid quidem, repellat laborum quisquam laboriosam! Ab alias molestias eaque architecto eos. Est veniam, velit et sunt quibusdam ut perspiciatis incidunt.</span>
+            <span>Dolorum saepe ipsa iure ex animi eaque voluptas unde ipsum adipisci debitis. Similique eos suscipit dolorum sit. Voluptatem voluptates obcaecati iste omnis assumenda ullam, odit reiciendis nesciunt, quam, fuga facere.</span>
+            <span>Quia, rem. Pariatur vero saepe non quasi assumenda hic ducimus, quod deleniti dolore, deserunt laborum consequuntur magnam illum libero tempore dignissimos nisi quaerat voluptatem. Quisquam, vero. Praesentium quidem excepturi quos!</span>
+          </p>
+        </section>
+        <section class="section section2">
+          <h1>section 2</h1>
+          <p>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ex nemo dolor, voluptas, voluptatem quaerat saepe facilis magni tempore nam voluptatibus ipsum illo hic. Repellendus aperiam dolorum nobis aliquam dignissimos?</span>
+            <span>A minima nobis fuga excepturi optio voluptatibus sit illo laborum sequi molestiae sint corporis dicta adipisci reiciendis dolore, explicabo expedita cupiditate ab totam alias? Pariatur nesciunt quaerat tempora qui eaque.</span>
+            <span>Ipsam, harum? Libero vel dolor sunt repudiandae itaque amet aliquid quidem, repellat laborum quisquam laboriosam! Ab alias molestias eaque architecto eos. Est veniam, velit et sunt quibusdam ut perspiciatis incidunt.</span>
+            <span>Dolorum saepe ipsa iure ex animi eaque voluptas unde ipsum adipisci debitis. Similique eos suscipit dolorum sit. Voluptatem voluptates obcaecati iste omnis assumenda ullam, odit reiciendis nesciunt, quam, fuga facere.</span>
+            <span>Quia, rem. Pariatur vero saepe non quasi assumenda hic ducimus, quod deleniti dolore, deserunt laborum consequuntur magnam illum libero tempore dignissimos nisi quaerat voluptatem. Quisquam, vero. Praesentium quidem excepturi quos!</span>
+          </p>
+        </section>
+        <section class="section section3">
+          <h1>section 3</h1>
+          <p>
+            <span>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam ex nemo dolor, voluptas, voluptatem quaerat saepe facilis magni tempore nam voluptatibus ipsum illo hic. Repellendus aperiam dolorum nobis aliquam dignissimos?</span>
+            <span>A minima nobis fuga excepturi optio voluptatibus sit illo laborum sequi molestiae sint corporis dicta adipisci reiciendis dolore, explicabo expedita cupiditate ab totam alias? Pariatur nesciunt quaerat tempora qui eaque.</span>
+            <span>Ipsam, harum? Libero vel dolor sunt repudiandae itaque amet aliquid quidem, repellat laborum quisquam laboriosam! Ab alias molestias eaque architecto eos. Est veniam, velit et sunt quibusdam ut perspiciatis incidunt.</span>
+            <span>Dolorum saepe ipsa iure ex animi eaque voluptas unde ipsum adipisci debitis. Similique eos suscipit dolorum sit. Voluptatem voluptates obcaecati iste omnis assumenda ullam, odit reiciendis nesciunt, quam, fuga facere.</span>
+            <span>Quia, rem. Pariatur vero saepe non quasi assumenda hic ducimus, quod deleniti dolore, deserunt laborum consequuntur magnam illum libero tempore dignissimos nisi quaerat voluptatem. Quisquam, vero. Praesentium quidem excepturi quos!</span>
+          </p>
+        </section>
+      </div>
+      <script src="./script.js"></script>
+</body>
+</html>
